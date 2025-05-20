@@ -1,7 +1,7 @@
-function Main() {
+function Main({ children }) {
   return (
     <>
-      <div className="container flex-grow-1"></div>
+      <div className="container flex-grow-1">{children}</div>
     </>
   );
 }
