@@ -1,9 +1,11 @@
 import ProductCard from "./ProductCard";
 import productPlaceholder from "../assets/product-placeholder.avif";
+import FilterBar from "../components/FilterBar";
+import { useState } from "react";
 
 function ProductList() {
   // Products
-  const products = [
+  const allProducts = [
     {
       id: 1,
       title: "Product 1",
@@ -42,9 +44,17 @@ function ProductList() {
     },
   ];
 
+  const [products, setProducts] = useState(allProducts);
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    // Still figuring a way to filter
+  };
+
   return (
     <>
       <div className="container-xxl">
+        <FilterBar onChange={handleChange} />
         <div className="row p-3">
           {products.map((product) => (
             <div className="col-md-4 my-3" key={product.id}>
