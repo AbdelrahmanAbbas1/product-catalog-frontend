@@ -23,8 +23,8 @@ function FilterBar({ onChange }) {
             <option value="" disabled>
               Filter by Price
             </option>
-            <option value="ascending">Ascending</option>
-            <option value="descending">Descending</option>
+            <option value="ascending">Low to High</option>
+            <option value="descending">High to Low</option>
           </select>
         </div>
       </div>

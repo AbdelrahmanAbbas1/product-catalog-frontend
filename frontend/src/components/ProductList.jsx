@@ -9,37 +9,37 @@ function ProductList() {
     {
       id: 1,
       title: "Product 1",
-      price: "20$",
+      price: 20,
       placeholder: productPlaceholder,
     },
     {
       id: 2,
       title: "Product 2",
-      price: "20$",
+      price: 25,
       placeholder: productPlaceholder,
     },
     {
       id: 3,
       title: "Product 3",
-      price: "15$",
+      price: 15,
       placeholder: productPlaceholder,
     },
     {
       id: 4,
       title: "Product 4",
-      price: "90$",
+      price: 90,
       placeholder: productPlaceholder,
     },
     {
       id: 5,
       title: "Product 5",
-      price: "40$",
+      price: 40,
       placeholder: productPlaceholder,
     },
     {
       id: 6,
       title: "Product 6",
-      price: "10$",
+      price: 10,
       placeholder: productPlaceholder,
     },
   ];
@@ -47,8 +47,17 @@ function ProductList() {
   const [products, setProducts] = useState(allProducts);
 
   const handleChange = (e) => {
-    console.log(e.target.value);
-    // Still figuring a way to filter
+    const filter = e.target.value;
+
+    if (filter === "ascending") {
+      setProducts([...allProducts].sort((a, b) => a.price - b.price));
+      // Id you used products.sort() => It will mutate the products array and the state won't
+      // be changed because there is no new array introduced so you have to introduce a new
+      // array in order to trigger the re-render
+    }
+    if (filter === "descending") {
+      setProducts([...allProducts].sort((a, b) => b.price - a.price));
+    }
   };
 
   return (
